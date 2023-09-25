@@ -9,24 +9,24 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: 'smtp.elasticemail.com',
-        // port: 2525,
-        secure: false,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
-          user: 'zhangrong@nestpractice.com',
-          pass: '8675679BB6FFA3FBD19320CE0C2B34D77E0D',
+          user: 'hoaforwork@gmail.com',
+          pass: 'qlyi erld qema hyxl',
         },
       },
       defaults: {
-        from: `zhangrong@nestpractice.com`,
+        from: `No reply <${'hoaforwork@gmail.com'}>`,
       },
-      // template: {
-      //   dir: join(__dirname, 'templates'),
-      //   adapter: new HandlebarsAdapter(),
-      //   options: {
-      //     strict: true,
-      //   },
-      // },
+      template: {
+        dir: join(__dirname, 'templates'),
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
+      },
     }),
   ],
   controllers: [MailController],
